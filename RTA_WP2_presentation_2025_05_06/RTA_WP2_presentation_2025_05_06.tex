@@ -251,8 +251,9 @@
   \begin{equation*}
     \frac{q}{p} = \frac{\Delta t_x}{r_IB_{\rm int}}
   \end{equation*}
-  \vspace{1.0cm}
-  {\\~\large The field integral $B_{\rm int}$ is parameterised as:}
+  \vspace{0.3cm}
+  \\
+  {\large The field integral $B_{\rm int}$ is parameterised as:}
   \begin{align*}
     B_{\rm int} =& c_0 + t_y^2(c_1 + c_5t_y^2 + c_6t_x^2) + t_xb_x(c_{10}t_x + c_3 + c_7t_y^2) \\
     +& c_{11}b_x^4 + c_2t_x^2 + b_x^2(c_4 + c_8t_y^2) + c_9t_x^4
@@ -274,43 +275,255 @@
   \end{enumerate}
 \end{frame}
 
-\begin{frame}{Overview of forward tracking algorithm}
+\section{Current tracking performance}
+
+\begin{frame}{Current tracking performance}
+  \vspace{0.0cm}
+  {\Large Metrics for tracking performance:}
+  \vspace{0.2cm}
+  \begin{itemize}
+    \setlength\itemsep{1.0em}
+    \item{Tracking efficiency vs $p$, $p_T$, $\eta$, \texttt{nPVs}, $\phi$}
+    \begin{itemize}
+      \item[-]{Reconstructed / Reconstructible}
+      \item[-]{Most important metric}
+    \end{itemize}
+    \item{Momentum resolution vs $p$, $\eta$}
+    \begin{itemize}
+      \item[-]{Width of momentum residual distribution}
+      \item[-]{Less important since track momentum is determined by Kalman fit}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Current tracking performance}
+  \vspace{0.0cm}
+  {\Large MC samples:}
+  \vspace{0.2cm}
+  \begin{itemize}
+    \setlength\itemsep{1.0em}
+    \item{\texttt{DC19}: Cross check with Andre's work}
+    \begin{itemize}
+      \item[-]{Found on Heidelberg cluster}
+      \item[-]{Cocktail of $B_s^0\to J/\psi\phi$, $B_s^0\to\phi\phi$, $D^+\to K_S^0\pi^+$, $Z^0\to\mu^+\mu^-$, $D^{\ast+}\to[K^-\pi^+]_{D^0}\pi^+$, 50k MagUp/MagDown}
+    \end{itemize}
+    \item{\texttt{v8.1} field map: Private production}
+    \begin{itemize}
+      \item[-]{Many thanks to Jiahui and Alessandro for your help producing this!}
+      \item[-]{Cocktail of $B_s^0\to J/\psi\phi$, $B_s^0\to\phi\phi$, $D^+\to K_S^0\pi^+$, 10k MagDown}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Current tracking performance}
   \vspace{0.0cm}
   \begin{figure}[htb]
     \centering
-    \begin{subfigure}{0.42\textwidth}
-      \includegraphics[width=1\textwidth]{example-image-a}
+    \begin{subfigure}{0.45\textwidth}
+      \includegraphics[width=1\textwidth]{Plots/TrackEfficiency_p_old_new_MC_comparison.pdf}
     \end{subfigure}%
-    \begin{subfigure}{0.58\textwidth}
-      \includegraphics[width=1\textwidth]{example-image-a}
+    \begin{subfigure}{0.45\textwidth}
+      \includegraphics[width=1\textwidth]{Plots/TrackEfficiency_pt_old_new_MC_comparison.pdf}
     \end{subfigure}
-    \vspace{-0.5cm}
-    \caption*{}
+    \begin{subfigure}{0.45\textwidth}
+      \includegraphics[width=1\textwidth]{Plots/TrackEfficiency_eta_old_new_MC_comparison.pdf}
+    \end{subfigure}%
+    \begin{subfigure}{0.45\textwidth}
+      \includegraphics[width=1\textwidth]{Plots/TrackEfficiency_phi_old_new_MC_comparison.pdf}
+    \end{subfigure}
+    \vspace{-0.2cm}
+    \caption*{Black: Results with \texttt{DC19}. {\color{blue}Blue: Results with recent MC}.}
   \end{figure}
+\end{frame}
+
+\begin{frame}{Current tracking performance}
+  \vspace{0.0cm}
+  \begin{figure}[htb]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+      \includegraphics[width=1\textwidth]{Plots/TrackEfficiency_nPV_old_new_MC_comparison.pdf}
+    \end{subfigure}%
+    \begin{subfigure}{0.45\textwidth}
+      \includegraphics[width=1\textwidth]{Plots/TrackEfficiency_nPV_new_MC_comparison.pdf}
+    \end{subfigure}
+    \vspace{-0.2cm}
+    \caption*{Left: \texttt{DC19} in black and recent MC in blue. Right: Results with recent MC.}
+  \end{figure}
+\end{frame}
+
+\section{Tracking performance with new parameterisation}
+
+\begin{frame}{Tracking performance with new parameterisation}
+  \vspace{0.0cm}
+  {\Large New parameterisation:}
+  \vspace{0.5cm}
+  \begin{itemize}
+    \setlength\itemsep{1.5em}
+    \item{Run Andre's code on recent MC samples}
+    \item{\underline{No change} in choice of parameterisation}
+    \item{Exact numerical changes can be found in this MR: \href{https://gitlab.cern.ch/lhcb/Rec/-/merge_requests/4362}{!4362}}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Tracking performance with new parameterisation}
+  \vspace{0.0cm}
+  \begin{figure}[htb]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+      \includegraphics[width=1\textwidth]{Plots/TrackEfficiency_p_bad_MC_parameterisation.pdf}
+    \end{subfigure}%
+    \begin{subfigure}{0.45\textwidth}
+      \includegraphics[width=1\textwidth]{Plots/TrackEfficiency_pt_bad_MC_parameterisation.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.45\textwidth}
+      \includegraphics[width=1\textwidth]{Plots/TrackEfficiency_eta_bad_MC_parameterisation.pdf}
+    \end{subfigure}%
+    \begin{subfigure}{0.45\textwidth}
+      \includegraphics[width=1\textwidth]{Plots/TrackEfficiency_nPV_bad_MC_parameterisation.pdf}
+    \end{subfigure}
+    \vspace{-0.2cm}
+    \caption*{Black: Old parameterisation. {\color{blue}Blue: Updated parameterisation}.}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Tracking performance with new parameterisation}
+  \vspace{0.0cm}
+  {\Large Observations with new parameterisation:}
+  \vspace{0.3cm}
+  \begin{itemize}
+    \setlength\itemsep{1.0em}
+    \item{Changes are generally \underline{small}}
+    \item{But it is worrying that performance is \underline{strictly} worse}
+  \end{itemize}
+  \vspace{0.6cm}
+  {\Large What went wrong?}
+  \vspace{0.3cm}
+  \begin{itemize}
+    \setlength\itemsep{1.0em}
+    \item{Not enough time to investigate thoroughly, unfortunately...}
+    \item{... so do a simple process of elimination:}
+    \begin{enumerate}
+      \item{Revert each parameterisation back to the old one}
+      \item{Rerun reconstruction and check track efficiencies}
+      \item{Figure out which parameterisation worsens the performance}
+    \end{enumerate}
+    \item{Culprit: $z$ magnet kick position $\to$ Use old parameterisation for now!}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Tracking performance with new parameterisation}
+  \vspace{0.0cm}
+  \begin{figure}[htb]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+      \includegraphics[width=1\textwidth]{Plots/TrackEfficiency_p_improved_MC_parameterisation.pdf}
+    \end{subfigure}%
+    \begin{subfigure}{0.45\textwidth}
+      \includegraphics[width=1\textwidth]{Plots/TrackEfficiency_pt_improved_MC_parameterisation.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.45\textwidth}
+      \includegraphics[width=1\textwidth]{Plots/TrackEfficiency_eta_improved_MC_parameterisation.pdf}
+    \end{subfigure}%
+    \begin{subfigure}{0.45\textwidth}
+      \includegraphics[width=1\textwidth]{Plots/TrackEfficiency_nPV_improved_MC_parameterisation.pdf}
+    \end{subfigure}
+    \vspace{-0.2cm}
+    \caption*{Black: Old parameterisation. {\color{blue}Blue: Updated parameterisation with old $z_{\rm mag}$}.}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Tracking performance with new parameterisation}
+  \vspace{0.0cm}
+  {\Large What about momentum resolution?}
+  \begin{figure}[htb]
+    \centering
+    \begin{subfigure}{0.50\textwidth}
+      \includegraphics[width=1\textwidth]{Plots/Track_resolution_p_comparison.pdf}
+    \end{subfigure}%
+    \begin{subfigure}{0.50\textwidth}
+      \includegraphics[width=1\textwidth]{Plots/Track_resolution_eta_comparison.pdf}
+    \end{subfigure}
+    \vspace{-0.2cm}
+    \caption*{Black: Old parameterisation. {\color{blue}Blue: Updated parameterisation with old $z_{\rm mag}$}.}
+  \end{figure}
+  {\Large Clear improvement in momentum resolution!}
+\end{frame}
+
+\begin{frame}{Tracking performance with new parameterisation}
+  \vspace{0.0cm}
+  \begin{figure}[htb]
+    \centering
+    \begin{subfigure}{0.4\textwidth}
+      \includegraphics[width=1\textwidth]{Plots/z_mag_position_bias_old_parameterisation.pdf}
+    \end{subfigure}%
+    \begin{subfigure}{0.4\textwidth}
+      \includegraphics[width=1\textwidth]{Plots/z_mag_position_bias_new_parameterisation.pdf}
+    \end{subfigure}
+    \begin{subfigure}{0.4\textwidth}
+      \includegraphics[width=1\textwidth]{Plots/z_mag_distribution_old_parameterisation.pdf}
+    \end{subfigure}%
+    \begin{subfigure}{0.4\textwidth}
+      \includegraphics[width=1\textwidth]{Plots/z_mag_distribution_new_parameterisation.pdf}
+    \end{subfigure}
+    \vspace{-0.3cm}
+    \caption*{Left: Results with \texttt{DC19}. Right: Results with recent MC.}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Tracking performance with new parameterisation}
+  \vspace{0.0cm}
+  \begin{figure}[htb]
+    \centering
+    \begin{subfigure}{0.4\textwidth}
+      \includegraphics[width=1\textwidth]{Plots/z_mag_position_bias_old_parameterisation.pdf}
+    \end{subfigure}%
+    \begin{subfigure}{0.4\textwidth}
+      \includegraphics[width=1\textwidth]{Plots/z_mag_position_bias_new_parameterisation.pdf}
+    \end{subfigure}
+  \end{figure}
+  \vspace{0.5cm}
+  \begin{itemize}
+    \setlength\itemsep{1.0em}
+    \item{In Andre's thesis, the bias in $z_{\rm mag}$ was found to be a few millimetres}
+    \begin{itemize}
+      \item{Sufficient for this simple track model}
+    \end{itemize}
+    \item{However, with the recent MC, this bias seems to be larger...}
+    \begin{itemize}
+      \item{... probably the choice of parameterisation is not ideal}
+      \item{I need to look into different parameterisations}
+    \end{itemize}
+  \end{itemize}
+  \vspace{0.9cm}
 \end{frame}
 
 \section{Conclusion}
 
-\begin{frame}{Conclusion}
+\begin{frame}{Summary and next steps}
   \vspace{0.0cm}
-  {\Large Summary:}
   \begin{itemize}
-    \item{Reran forward tracking parameterisations using Andre G{\"u}nther's code ``out of the box''}
+    \setlength\itemsep{1.0em}
+    \item{I have attempted to run the forward tracking parameterisations using Andre G{\"u}nther's code ``out of the box''}
     \begin{enumerate}
+      \setlength\itemsep{0.3em}
       \item{Initial results showed a degradation in performance}
       \item{Traced the issue to the $z_{\rm mag}$ parameterisation}
-      \item{Reverting this parameterisation shows very small improvement}
+      \item{Using the old $z_{\rm mag}$ parameterisation for now:}
+      \begin{itemize}
+        \item[-]{Very small improvement in track efficiencies}
+        \item[-]{Noticeable improvement in momentum resolution}
+      \end{itemize}
     \end{enumerate}
-  \end{itemize}
-  \vspace{0.6cm}
-  {\Large Next steps:}
-  \begin{itemize}
-    \item{Rerun studies with full set of MC samples}
-    \item{Look into other parameterisations of $z_{\rm mag}$}
+    \item{Note: Results are very preliminary! Need to:}
+    \begin{enumerate}
+      \setlength\itemsep{0.3em}
+      \item{Rerun studies with full set of MC samples}
+      \item{Look into other parameterisations of $z_{\rm mag}$}
+    \end{enumerate}
   \end{itemize}
   \vspace{0.3cm}
   \begin{center}
-    \Huge Thank you!
+    \Huge Thanks for listening!
   \end{center}
 \end{frame}
 
