@@ -541,10 +541,11 @@
       \item{Mostly copy Andre's old code, with updated Moore scripts}
       \item{I have already added new samples to TestDB in \href{https://gitlab.cern.ch/lhcb-datapkg/PRConfig/-/merge_requests/567}{this MR}}
     \end{itemize}
-    \item{Long term: Make parameterisation code more general}
+    \item{Long term: Some ideas for improvements to make code more generic}
     \begin{itemize}
-      \item{In case updates are required in the future}
-      \item{A particular parameterisation may work today, but will break with future MC samples}
+      \item{Plot residuals and ensure small bias/variance}
+      \item{Fit coefficients with orthogonal polynomial basis functions}
+      \item{Change loss function to something more robust against outliers}
     \end{itemize}
   \end{enumerate}
   \begin{center}
