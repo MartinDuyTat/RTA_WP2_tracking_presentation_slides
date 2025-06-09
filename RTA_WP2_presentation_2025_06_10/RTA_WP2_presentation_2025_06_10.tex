@@ -149,21 +149,6 @@
   \end{enumerate}
 \end{frame}
 
-\begin{frame}{Reminder: Parameterisations in HLT2 forward tracking}
-  \vspace{0.0cm}
-  {\large Last time I presented these parameterisations:}
-  \vspace{0.2cm}
-  \begin{enumerate}
-    \setlength\itemsep{0.5em}
-    \item{$z$ magnet kick position}
-    \item{$x$ fringe field correction}
-    \item{Stereo angle $y$ correction}
-    \item{Hough histogram binning}
-    \item{$z$ hit correction with SciFi $yz$ tilt}
-    \item{Magnetic field integral $\leftarrow$ Improves momentum resolution estimate}
-  \end{enumerate}
-\end{frame}
-
 \begin{frame}{Reminder: $z_{\rm mag}$ parameterisation}
   \vspace{0.0cm}
   \begin{figure}[htb]
@@ -263,23 +248,6 @@
     \vspace{-0.2cm}
     \caption*{Black: Old parameterisation. {\color{blue}Blue: Updated parameterisation with old $z_{\rm mag}$}.}
   \end{figure}
-\end{frame}
-
-\begin{frame}{Reminder: Momentum resolution}
-  \vspace{0.0cm}
-  {\Large Despite difficulties with $z_{\rm mag}$, it would be ideal to update parameterisations using the new field map}
-  \begin{figure}[htb]
-    \centering
-    \begin{subfigure}{0.50\textwidth}
-      \includegraphics[width=1\textwidth]{Plots/Track_resolution_p_comparison.pdf}
-    \end{subfigure}%
-    \begin{subfigure}{0.50\textwidth}
-      \includegraphics[width=1\textwidth]{Plots/Track_resolution_eta_comparison.pdf}
-    \end{subfigure}
-    \vspace{-0.2cm}
-    \caption*{Black: Old parameterisation. {\color{blue}Blue: Updated parameterisation with old $z_{\rm mag}$}.}
-  \end{figure}
-  {\Large Clear improvement in momentum resolution!}
 \end{frame}
 
 \section{Closer study of \texorpdfstring{$z_{\rm mag}$}{zMag} parameterisation}
@@ -417,19 +385,19 @@
   \begin{figure}[htb]
     \centering
     \begin{subfigure}{0.45\textwidth}
-      \includegraphics[width=1\textwidth]{Plots/TrackEfficiency_p_improved_MC_parameterisation.pdf}
+      \includegraphics[width=1\textwidth]{Plots/TrackEfficiency_p_official_MC_old_new_parameterisation_comparison.pdf}
     \end{subfigure}%
     \begin{subfigure}{0.45\textwidth}
-      \includegraphics[width=1\textwidth]{Plots/TrackEfficiency_pt_improved_MC_parameterisation.pdf}
+      \includegraphics[width=1\textwidth]{Plots/TrackEfficiency_pt_official_MC_old_new_parameterisation_comparison.pdf}
     \end{subfigure}
     \begin{subfigure}{0.45\textwidth}
-      \includegraphics[width=1\textwidth]{Plots/TrackEfficiency_eta_improved_MC_parameterisation.pdf}
+      \includegraphics[width=1\textwidth]{Plots/TrackEfficiency_eta_official_MC_old_new_parameterisation_comparison.pdf}
     \end{subfigure}%
     \begin{subfigure}{0.45\textwidth}
-      \includegraphics[width=1\textwidth]{Plots/TrackEfficiency_nPV_improved_MC_parameterisation.pdf}
+      \includegraphics[width=1\textwidth]{Plots/TrackEfficiency_nPV_official_MC_old_new_parameterisation_comparison.pdf}
     \end{subfigure}
     \vspace{-0.2cm}
-    \caption*{Black: Old parameterisation. {\color{blue}Blue: Improved parameterisation of $z_{\rm mag}$} {\color{red}need to update these plots}.}
+    \caption*{Black: Old parameterisation. {\color{blue}Blue: Updated parameterisation of $z_{\rm mag}$}.}
   \end{figure}
 \end{frame}
 
@@ -437,11 +405,12 @@
   \vspace{0.0cm}
   \begin{itemize}
     \setlength\itemsep{1.0em}
-    \item{I propose that we keep the original $z_{\rm mag}$ parameterisation}
+    \item{Perhaps we should keep the original $z_{\rm mag}$ parameterisation?}
     \begin{itemize}
       \item{Determined by Andre G{\"u}nther using DC19 MC}
     \end{itemize}
-    \item{Somehow, tracking efficiencies get \underline{worse} when using a more accurate parameterisation...}
+    \item{Total tracking efficiency dropped from $86.01\%$ to $85.75\%$ with updated parameterisation}
+    \item{Efficiencies get \underline{worse} with more accurate parameterisation...}
     \item{...but perhaps in this case doing the wrong thing is better}
     \item{Is there a straightforward explanation for this...?}
   \end{itemize}
@@ -460,7 +429,7 @@
     \item{My understanding is:}
     \begin{itemize}
       \item[-]{$z_{\rm mag}$ is underestimated $\to$ Search window becomes larger!}
-      \item[-]{$\to$ Add negative bias at low momentum to improve performance}
+      \item[$\to$]{Add $-9.5$~mm bias at low momentum to improve performance}
     \end{itemize}
   \end{itemize}
 \end{frame}
@@ -470,19 +439,19 @@
   \begin{figure}[htb]
     \centering
     \begin{subfigure}{0.45\textwidth}
-      \includegraphics[width=1\textwidth]{Plots/TrackEfficiency_p_improved_MC_parameterisation.pdf}
+      \includegraphics[width=1\textwidth]{Plots/TrackEfficiency_p_official_MC_new_parameterisation_bias_comparison.pdf}
     \end{subfigure}%
     \begin{subfigure}{0.45\textwidth}
-      \includegraphics[width=1\textwidth]{Plots/TrackEfficiency_pt_improved_MC_parameterisation.pdf}
+      \includegraphics[width=1\textwidth]{Plots/TrackEfficiency_pt_official_MC_new_parameterisation_bias_comparison.pdf}
     \end{subfigure}
     \begin{subfigure}{0.45\textwidth}
-      \includegraphics[width=1\textwidth]{Plots/TrackEfficiency_eta_improved_MC_parameterisation.pdf}
+      \includegraphics[width=1\textwidth]{Plots/TrackEfficiency_eta_official_MC_new_parameterisation_bias_comparison.pdf}
     \end{subfigure}%
     \begin{subfigure}{0.45\textwidth}
-      \includegraphics[width=1\textwidth]{Plots/TrackEfficiency_nPV_improved_MC_parameterisation.pdf}
+      \includegraphics[width=1\textwidth]{Plots/TrackEfficiency_nPV_official_MC_new_parameterisation_bias_comparison.pdf}
     \end{subfigure}
     \vspace{-0.2cm}
-    \caption*{Black: Old parameterisation. {\color{blue}Blue: Biased parameterisation of $z_{\rm mag}$} {\color{red}need to update these plots}.}
+    \caption*{Black: Updated parameterisation. {\color{blue}Blue: With bias in $z_{\rm mag}$.}}
   \end{figure}
 \end{frame}
 
@@ -491,36 +460,36 @@
   \begin{itemize}
     \setlength\itemsep{1.0em}
     \item{Indeed, the improvement in performance when introducing a bias confirms that it is the search window size that drive the tracking efficiencies at low momentum}
-    \item{Motivates us to keep the original $z_{\rm mag}$ parameterisation}
-    \item{All other parameterisations will be updated using new MC samples}
-    \item{I have already added these samples to TestDB in \href{https://gitlab.cern.ch/lhcb-datapkg/PRConfig/-/merge_requests/567}{this MR}}
-    \item{I will also add documentation to the \href{https://gitlab.cern.ch/lhcb/paramscriptor}{ParamScriptor} repository}
+    \item{With a bias, efficiency improved from $85.75\%$ to $86.02\%$}
+    \begin{itemize}
+      \item{Note: With old parameterisation the efficiency was $86.01\%$}
+    \end{itemize}
+    \item{This motivates us to keep the original $z_{\rm mag}$ parameterisation}
+    \item{In fact, since there is no overall improvement, I propose we \underline{do not} change the parameterisations for 2025 data taking}
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Tracking efficiencies with final parameterisation}
+\begin{frame}{Reminder: Momentum resolution}
   \vspace{0.0cm}
+  {\Large Previously I showed a momentum resolution improvement:}
   \begin{figure}[htb]
     \centering
-    \begin{subfigure}{0.45\textwidth}
-      \includegraphics[width=1\textwidth]{Plots/TrackEfficiency_p_improved_MC_parameterisation.pdf}
+    \begin{subfigure}{0.50\textwidth}
+      \includegraphics[width=1\textwidth]{Plots/Track_resolution_p_comparison_wrong.pdf}
     \end{subfigure}%
-    \begin{subfigure}{0.45\textwidth}
-      \includegraphics[width=1\textwidth]{Plots/TrackEfficiency_pt_improved_MC_parameterisation.pdf}
-    \end{subfigure}
-    \begin{subfigure}{0.45\textwidth}
-      \includegraphics[width=1\textwidth]{Plots/TrackEfficiency_eta_improved_MC_parameterisation.pdf}
-    \end{subfigure}%
-    \begin{subfigure}{0.45\textwidth}
-      \includegraphics[width=1\textwidth]{Plots/TrackEfficiency_nPV_improved_MC_parameterisation.pdf}
+    \begin{subfigure}{0.50\textwidth}
+      \includegraphics[width=1\textwidth]{Plots/Track_resolution_eta_comparison_wrong.pdf}
     \end{subfigure}
     \vspace{-0.2cm}
-    \caption*{Black: Old parameterisation. {\color{blue}Blue: Proposed parameterisation} {\color{red}need to update these plots}.}
+    \caption*{Black: Old parameterisation, old MC. {\color{blue}Blue: New parameterisation, new MC}.}
   \end{figure}
+  \vspace{-0.3cm}
+  {\Large I must apologise, but this was a mistake on my part\\ \color{red}\large This improvement was \underline{not} due to the new parameterisation, but due to the different MC used by me and Andre.}
 \end{frame}
 
-\begin{frame}{Momentum resolution with final parameterisation}
+\begin{frame}{Momentum resolution}
   \vspace{0.0cm}
+  {\Large Correct comparison, using the same MC sample:}
   \begin{figure}[htb]
     \centering
     \begin{subfigure}{0.50\textwidth}
@@ -530,8 +499,9 @@
       \includegraphics[width=1\textwidth]{Plots/Track_resolution_eta_comparison.pdf}
     \end{subfigure}
     \vspace{-0.2cm}
-    \caption*{Black: Old parameterisation. {\color{blue}Blue: Proposed parameterisation}. {\color{red}need to update these plots}}
+    \caption*{Black: Old parameterisation. {\color{blue}Blue: Proposed parameterisation}.}
   \end{figure}
+  {\Large No improvement in track resolution, even with new magnetic field parameterisation}
 \end{frame}
 
 \section{Conclusion}
@@ -540,7 +510,7 @@
   \vspace{0.0cm}
   \begin{itemize}
     \setlength\itemsep{1.0em}
-    \item{All parameterisations have been updated using centrally produced MC}
+    \item{Parameterisations are re-evaluated using centrally produced MC}
     \begin{enumerate}
       \item{Larger MC samples}
       \item{Both magnet polarities}
@@ -549,7 +519,7 @@
     \item{Possible improvements to $z_{\rm mag}$ parameterisation have been explored}
     \begin{itemize}
       \setlength\itemsep{0.3em}
-      \item{Biases are reduced, but performance gets \underline{worse}}
+      \item{Biases are reduced, but performance gets slightly \underline{worse}}
       \item{Reason for this unexpected behaviour:}
       \begin{itemize}
         \item[-]{Original parameterisation mostly \underline{underestimated} $z_{\rm mag}$}
@@ -558,27 +528,31 @@
         \item[$\to$]{Higher tracking reconstruction}
       \end{itemize}
     \end{itemize}
-    \item{I propose: Update all parameterisations except for that of $z_{\rm mag}$}
-    \begin{itemize}
-      \item[-]{Negligible change in tracking efficiencies}
-      \item[-]{Small improvement in momentum resolution}
-    \end{itemize}
+    \item{Once it was understood, tracking efficiencies remain the same}
+    \item{I propose: \underline{Keep current parameterisation}}
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Next steps}
   \vspace{0.0cm}
   \begin{enumerate}
-    \setlength\itemsep{2.0em}
-    \item{Get \href{https://gitlab.cern.ch/lhcb/Rec/-/merge_requests/4362}{!4362} and \href{https://gitlab.cern.ch/lhcb-datapkg/PRConfig/-/merge_requests/567}{!567} merged}
-    \item{Document work in ParamScriptor}
-    \item{Final step: Improve throughput}
+    \setlength\itemsep{1.8em}
+    \item{Most urgent: Improve throughput}
     \begin{itemize}
-      \item{Code was already heavily optimised by Andre G{\"u}nther...}
+      \item{Code was already heavily optimised by Andre...}
       \item{...but I'll do some quick checks for obvious bottleknecks}
     \end{itemize}
+    \item{After June TS: Document work in ParamScriptor}
+    \begin{itemize}
+      \item{Mostly copy Andre's old code, with updated Moore scripts}
+      \item{I have already added new samples to TestDB in \href{https://gitlab.cern.ch/lhcb-datapkg/PRConfig/-/merge_requests/567}{this MR}}
+    \end{itemize}
+    \item{Long term: Make parameterisation code more general}
+    \begin{itemize}
+      \item{In case updates are required in the future}
+      \item{A particular parameterisation may work today, but will break with future MC samples}
+    \end{itemize}
   \end{enumerate}
-  \vspace{0.3cm}
   \begin{center}
     \Huge Thanks for listening!
   \end{center}
